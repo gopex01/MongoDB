@@ -9,6 +9,7 @@ import { NotificationModule } from './Notification/notifications.module';
 import { TermModule } from './Term/term.module';
 import { UserEntity } from './User/user.entity';
 import { UserModule } from './User/user.module';
+import { AuthModule } from './Auth/auth.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { UserModule } from './User/user.module';
     BorderCrossModule,
     UserModule,
     TermModule,
+    AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',

@@ -1,3 +1,4 @@
+import { Role } from "src/Roles/roles.enum";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('user')
@@ -21,6 +22,6 @@ export class UserEntity{
     JMBG:string;
     @Column()
     verified:Boolean;
-    //@Column()
-    //role:string;
+    @Column()
+    rola:Role;
 }

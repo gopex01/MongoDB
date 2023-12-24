@@ -1,3 +1,4 @@
+import { Role } from 'src/Roles/roles.enum';
 import {
   Column,
   Entity,
@@ -35,4 +36,6 @@ export class BorderCrossEntity {
   phoneNumber: string;
   @Column()
   description: string;
+  @Column()
+  rola:Role;
 }
