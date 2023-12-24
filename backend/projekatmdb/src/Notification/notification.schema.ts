@@ -10,6 +10,8 @@ export class NotifiticationEntity {
   isRead: boolean = false;
   @Prop()
   dateAndTime: Date;
+  @Prop()
+  idTerm:number;
 }
 export const NotificationSchema =
   SchemaFactory.createForClass(NotifiticationEntity);

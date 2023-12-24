@@ -13,4 +13,15 @@ export class BorderCrossService{
         const bc:BorderCrossEntity={...newBC};
         await this.bcRepo.save(bc);
     }
+    async getBCId(name:string)
+    {
+        const bc:BorderCrossEntity=await this.bcRepo.findOne({where:{Name:name}});
+        if(bc)
+        {
+            return await bc.Id;
+        }
+        else{
+            return null;
+        }
+    }
 }

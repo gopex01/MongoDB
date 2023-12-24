@@ -3,5 +3,6 @@ export interface INotification extends Document {
   readonly content: string;
   readonly isRead: boolean;
   readonly dateAndTime: Date;
+  readonly idTerm:number;
 }
 export type INotificationDocument = INotification & Document;

@@ -5,4 +5,5 @@ export class BorderCrossEntity{
     Id:number;
     @Column()
     Name:string;
+    
 }
