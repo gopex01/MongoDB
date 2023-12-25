@@ -10,6 +10,7 @@ import { TermSchema } from 'src/Term/term.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { NotificationModule } from 'src/Notification/notifications.module';
 import { NotificationSchema } from 'src/Notification/notification.schema';
+import { Repository } from 'typeorm';
 
 @Module({
   imports: [TypeOrmModule.forFeature([BorderCrossEntity]),
@@ -17,7 +18,7 @@ import { NotificationSchema } from 'src/Notification/notification.schema';
   MongooseModule.forFeature([
     { name: 'Notification', schema: NotificationSchema },
   ])],
-  providers: [BorderCrossService,NotificationService],
+  providers: [BorderCrossService,NotificationService,Repository],
   controllers: [BorderCrossController],
   exports:[BorderCrossService]
 })
