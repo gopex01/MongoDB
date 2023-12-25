@@ -22,15 +22,15 @@ export class BorderCrossController {
   async getOneBC(@Param('username') username: string) {
     return this.bcService.getBCByUsername(username);
   }
-  // @Patch('checkTerm/:idTerm/:isCrossed/:isComeBack/:irreg')
-  // async checkTerm(
-  //   @Param('idTerm') idTerm: number,
-  //   @Param('isCrossed') isCrossed: string,
-  //   @Param('isComeBack') isComeBack: string,
-  //   @Param('irreg') irreg: string,
-  // ) {
-  //   return this.bcService.checkTerm(idTerm, isCrossed, isComeBack, irreg);
-  // }
+   @Patch('checkTerm/:idTerm/:isCrossed/:isComeBack/:irreg')
+   async checkTerm(
+     @Param('idTerm') idTerm: number,
+     @Param('isCrossed') isCrossed: string,
+     @Param('isComeBack') isComeBack: string,
+     @Param('irreg') irreg: string,
+   ) {
+     return this.bcService.checkTerm(idTerm, isCrossed, isComeBack, irreg);
+   }
   @Get('getNumOfBC')
   async getNumOfBC() {
     return this.bcService.getNumOfBC();

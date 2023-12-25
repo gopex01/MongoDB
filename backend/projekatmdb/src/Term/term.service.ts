@@ -4,6 +4,9 @@ import { ITerm, ITermDocument } from './term.interface';
 import { Model, Document } from 'mongoose';
 import { BorderCrossService } from 'src/BorderCross/bc.service';
 import { TermEntity } from './term.schema';
+import { INotification, INotificationDocument } from 'src/Notification/notification.interface';
+import { create } from 'domain';
+import { NotificationService } from 'src/Notification/notifications.service';
 
 @Injectable()
 export class TermService {
@@ -12,6 +15,8 @@ export class TermService {
     private termModule = Model<Document> as Model<ITermDocument>,
     @Inject(BorderCrossService)
     private readonly bcService: BorderCrossService,
+    @InjectModel('Notification') private notModule=Model<Document> as Model<INotificationDocument>,
+    @Inject(NotificationService) private readonly notService:NotificationService
   ) {}
 
   async addTerm(
@@ -21,12 +26,14 @@ export class TermService {
   ): Promise<ITerm> {
     const createdTerm: ITerm = new this.termModule(newTerm);
     createdTerm.userId = idUser;
+    createdTerm.accepted=false;
     let bcId = await this.bcService.getBCId(bcName);
     createdTerm.borderCrossId = bcId;
     const selectedDate=newTerm.dateAndTime;
     const time=await this.findNextAvailableTerm(selectedDate);
     console.log("Novo vreme je "+time);
     createdTerm.dateAndTime=time;
+    await this.notService.addNotification(`Uspesno ste zakazali termin u vremenu:${time}`,idUser,createdTerm.id);
     return createdTerm.save();
   }
   async getTerm(idTerm:number) {
@@ -76,6 +83,7 @@ export class TermService {
   
     return nextAvailableDate;
   }
+  
   async getAcceptedTerms(userId:number)
   {
       const terms=await this.termModule.find({userId:userId});
@@ -94,4 +102,19 @@ export class TermService {
     return terms.length;
   }
   //dodaj accept term
+  async acceptTerm(idNotification:number,answer:boolean)
+  {
+    const not=await this.notModule.findOne({id:idNotification});
+    console.log(not);
+    const term=await this.termModule.findOne({id:not.idTerm});
+    console.log(not);
+    console.log(term);
+    term.accepted=answer;
+    const changedTerm:ITerm=new this.termModule(term);
+    changedTerm.save();
+    return {
+      message:'success'
+    }
+
+  }
 }

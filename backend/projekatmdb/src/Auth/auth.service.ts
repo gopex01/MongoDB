@@ -15,10 +15,10 @@ export class AuthService{
     async validateUser(username:string,pass:string):Promise<any>{
         let user:UserEntity|BorderCrossEntity|any=await this.userService.getOneUser(username);
         if(user){
-            const isMatchs=await bcrypt.compare(pass,user.Password);
+            const isMatchs=await bcrypt.compare(pass,user.password);
             if(isMatchs){
-            if(user.Verified===true){
-            const { Password, ...result}=user;
+            if(user.verified===true){
+            const { password, ...result}=user;
             return result;
             }
             }
@@ -26,20 +26,20 @@ export class AuthService{
         else{
             user=await this.bcService.getBCByUsername(username);
             if(user){
-            const isMatchs=await bcrypt.compare(pass,user.Password);
+            const isMatchs=await bcrypt.compare(pass,user.password);
             if(isMatchs)
             {
-                const {Password,...result}=user;
+                const {password,...result}=user;
                 return result;
             }
         }
         else{  
             user=await this.adminService.getAdmin(username);
             if(user){
-                const isMatchc=await bcrypt.compare(pass,user.Password);
+                const isMatchc=await bcrypt.compare(pass,user.password);
                 if(isMatchc)
                 {
-                    const {Password,...result}=user;
+                    const {password,...result}=user;
                     return result;
                 }
             }
@@ -51,11 +51,11 @@ export class AuthService{
 
     async login(user:any){
         console.log(user.rola)
-        const payload={user:user.Username,sub:user.Id,role:user.rola};
+        const payload={user:user.username,sub:user.id,role:user.rola};
         
         return {
             access_token:this.jwtService.sign(payload),
-            username:user.Username,
+            username:user.username,
             rola:user.rola
         };
     }

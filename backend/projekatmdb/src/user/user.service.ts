@@ -33,8 +33,12 @@ export class UserService{
             const hashPass=await bcrypt.hash(newUser.password,10);
             user.password=hashPass;
             user.rola=Role.User;
+            user.verified=false;
             await this.userRepo.save(user);
-            //await this.send
+            await this.sendVerificationEmail(newUser.username,newUser.email);
+            return{
+                message:'Success'
+            }
         }
         catch(error){
             if(error.code='23505')

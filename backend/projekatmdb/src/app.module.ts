@@ -27,7 +27,7 @@ import { AdminEntity } from './Admin/admin.entity';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'puflander',
+      password: 'pufla12',
       database: 'ProjekatMDB',
       entities: [BorderCrossEntity, UserEntity, AdminEntity],
       synchronize: true,

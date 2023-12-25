@@ -98,7 +98,7 @@ export class BorderCrossService {
            }
            this.notService.addNotification(content,term.userId,idTerm);
        }
-       const term=await this.termModule.findOne({where:{Id:idTerm}});
+       const term=await this.termModule.findOne({id:idTerm});
        if(!term){
            return {
                message:'error'
@@ -135,6 +135,10 @@ export class BorderCrossService {
        }
        term.irregularities=irreg;
        let updatedTerm:ITerm=new this.termModule(term);
+       await updatedTerm.save();
+       return {
+        message:'success'
+       }
    }
   async getNumOfBC() {
     const bc = await this.borderCrossRepository.find();

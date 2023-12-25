@@ -16,6 +16,9 @@ import { Repository } from 'typeorm';
   imports: [
     MongooseModule.forFeature([{ name: 'Term', schema: TermSchema }]),
     TypeOrmModule.forFeature([BorderCrossEntity]),
+    MongooseModule.forFeature([
+      { name: 'Notification', schema: NotificationSchema },
+    ]),
     NotificationModule,
   ],
   providers: [TermService, BorderCrossService, Repository],

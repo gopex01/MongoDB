@@ -15,7 +15,7 @@ export interface ITerm extends Document{
    isComeBack:Boolean;
    irregularities:string;
    accepted:boolean;
-    userId:number;
+   userId:number;
    borderCrossId:number;
 }
 export type ITermDocument= ITerm & Document;

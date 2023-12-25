@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Patch, Post } from "@nestjs/common";
 import { TermService } from "./term.service";
 import { TermEntity } from "./term.schema";
 import { ITerm } from "./term.interface";
@@ -22,4 +22,21 @@ export class TermController{
     {
         return await this.termService.getTermsOfUser(userId);
     }
+    @Get('getAcceptedTerms/:userId')
+    async getAcceptedTerms(@Param('userId') userId:number)
+    {
+        return await this.termService.getAcceptedTerms(userId);
+    }
+
+    @Get('getNumOfTerms')
+    async getNumOfTerms()
+    {
+        return await this.termService.getNumOfTerms();
+    }
+    @Patch('acceptTerm/:idNotification/:answer')
+    async acceptTerm(@Param('idNotification') idNot:number, @Param('answer') answer:boolean)
+    {
+        return await this.termService.acceptTerm(idNot,answer);
+    }
+
 }
