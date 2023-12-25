@@ -2,7 +2,6 @@ import { Role } from 'src/Roles/roles.enum';
 import {
   Column,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
   Unique,
 } from 'typeorm';

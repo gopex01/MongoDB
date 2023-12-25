@@ -8,6 +8,10 @@ import { UserModule } from "src/User/user.module";
 import { AuthService } from "./auth.service";
 import { LocalStrategy } from "./local.strateg";
 import { JwtStrategy } from "./jwt.strateg";
+import { BorderCrossService } from "src/BorderCross/bc.service";
+import { UserService } from "src/User/user.service";
+import { AdminService } from "src/Admin/admin.service";
+import { BorderCrossEntity } from "src/BorderCross/bc.entity";
 @Module({
     imports:[JwtModule.register({
         secret:jwtConstants.secret,

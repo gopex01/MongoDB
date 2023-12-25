@@ -5,10 +5,6 @@ import { NotificationService } from './notifications.service';
 @Controller('Notification')
 export class NotificationController {
   constructor(private readonly notificationService: NotificationService) {}
-  @Post('addNotification')
-  async addNotification(@Body() notification: INotification) {
-    return this.notificationService.addNotification(notification);
-  }
   @Get('getNotificationById/:id')
   async getNotificationById(@Param('id') id: number) {
     return this.notificationService.getNotificationById(id);

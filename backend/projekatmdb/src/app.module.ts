@@ -10,6 +10,8 @@ import { TermModule } from './Term/term.module';
 import { UserEntity } from './User/user.entity';
 import { UserModule } from './User/user.module';
 import { AuthModule } from './Auth/auth.module';
+import { AdminModule } from './Admin/admin.module';
+import { AdminEntity } from './Admin/admin.entity';
 
 @Module({
   imports: [
@@ -17,6 +19,7 @@ import { AuthModule } from './Auth/auth.module';
     NotificationModule,
     BorderCrossModule,
     UserModule,
+    AdminModule,
     TermModule,
     AuthModule,
     TypeOrmModule.forRoot({
@@ -24,9 +27,9 @@ import { AuthModule } from './Auth/auth.module';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'puflander',
+      password: 'pufla12',
       database: 'ProjekatMDB',
-      entities: [BorderCrossEntity, UserEntity],
+      entities: [BorderCrossEntity, UserEntity,AdminEntity],
       synchronize: true,
     }),
   ],

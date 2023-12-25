@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { INotification, INotificationDocument } from './notification.interface';
-import { Model } from 'mongoose';
+import { Model,Document } from 'mongoose';
 
 @Injectable()
 export class NotificationService {
@@ -9,8 +9,14 @@ export class NotificationService {
     @InjectModel('Notification')
     private notificationModel = Model<Document> as Model<INotificationDocument>,
   ) {}
-  async addNotification(newNotification: INotification) {
-    const createdNotification = new this.notificationModel(newNotification);
+  async addNotification(message:string,userId:number,idTerm:number){
+    let newNotification:INotification;
+    newNotification.content=message;
+    newNotification.isRead=false;
+    newNotification.dateAndTime=new Date();
+    newNotification.userId=userId;
+    newNotification.idTerm=idTerm;
+    let createdNotification=new this.notificationModel(newNotification);
     return createdNotification.save();
   }
   async getAllNotifications() {

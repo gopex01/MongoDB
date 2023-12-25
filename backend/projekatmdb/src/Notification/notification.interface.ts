@@ -1,8 +1,10 @@
 export interface INotification extends Document {
-  readonly id: number;
-  readonly content: string;
-  readonly isRead: boolean;
-  readonly dateAndTime: Date;
-  readonly idTerm:number;
+ id: number;
+ content: string;
+ isRead: boolean;
+ dateAndTime: Date;
+ idTerm:number;
+ userId:number;
+ 
 }
 export type INotificationDocument = INotification & Document;
