@@ -13,13 +13,16 @@ import { NotificationSchema } from 'src/Notification/notification.schema';
 import { Repository } from 'typeorm';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([BorderCrossEntity]),
-  MongooseModule.forFeature([{name:'Term', schema:TermSchema}]),
-  MongooseModule.forFeature([
-    { name: 'Notification', schema: NotificationSchema },
-  ])],
-  providers: [BorderCrossService,NotificationService,Repository],
+  imports: [
+    TypeOrmModule.forFeature([BorderCrossEntity]),
+    MongooseModule.forFeature([{ name: 'Term', schema: TermSchema }]),
+    MongooseModule.forFeature([
+      { name: 'Notification', schema: NotificationSchema },
+    ]),
+    NotificationModule,
+  ],
+  providers: [BorderCrossService, Repository],
   controllers: [BorderCrossController],
-  exports:[BorderCrossService]
+  exports: [BorderCrossService],
 })
 export class BorderCrossModule {}
