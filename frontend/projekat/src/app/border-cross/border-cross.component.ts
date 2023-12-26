@@ -17,7 +17,7 @@ export class BorderCrossComponent implements OnInit{
     this.bcName="";
   }
   ngOnInit(): void {
-    this.bcName=`../../assets/images/${this.borderCross?.Name}Main.jpeg`;
+    this.bcName=`../../assets/images/${this.borderCross?.name}Main.jpeg`;
   }
   
 }

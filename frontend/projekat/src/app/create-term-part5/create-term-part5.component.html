@@ -1,6 +1,6 @@
 <select [(ngModel)]="selectedBorderCross" (change)="onBorderCrossSelected()">
-    <option *ngFor="let borderCross of arrBc$ | async" [value]="borderCross.Name">
-      {{ borderCross.Name }}
+    <option *ngFor="let borderCross of arrBc$ | async" [value]="borderCross.name">
+      {{ borderCross.name }}
     </option>
 </select>
   

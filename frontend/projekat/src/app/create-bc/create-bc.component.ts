@@ -41,18 +41,18 @@ export class CreateBcComponent implements OnInit{
   create()
   {
     let bc:BorderCross={
-      Name:this.Name,
-      Username:this.Username,
-      Password:this.Password,
-      Location:this.Location,
-      Country:this.Country,
-      Type:this.Type,
-      WorkHour:this.WorkHour,
-      TransportConnections:this.TransportConnections,
-      Capacity:this.Capacity,
-      Email:this.Email,
-      PhoneNumber:this.PhoneNumber,
-      Description:this.Description
+      name:this.Name,
+      username:this.Username,
+      password:this.Password,
+      location:this.Location,
+      country:this.Country,
+      type:this.Type,
+      workHour:this.WorkHour,
+      transportConnections:this.TransportConnections,
+      capacity:this.Capacity,
+      email:this.Email,
+      phoneNumber:this.PhoneNumber,
+      description:this.Description
     };
     this.bcService.addBC(bc);
   }

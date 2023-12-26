@@ -1,8 +1,9 @@
 export interface User{
-    NameAndSurname:string;
-    Email:string;
-    Username:string;
-    DateOfBirth:number;
-    PhoneNumber:string;
+    id:number;
+    nameAndSurname:string;
+    email:string;
+    username:string;
+    dateOfBirth:number;
+    phoneNumber:string;
     JMBG:string;
 }

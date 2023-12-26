@@ -10,13 +10,18 @@ import {
 import { BorderCrossService } from './bc.service';
 import { BorderCrossEntity } from './bc.entity';
 
-@Controller('Border')
+@Controller('BorderCross')
 export class BorderCrossController {
   constructor(private readonly bcService: BorderCrossService) {}
 
   @Post('addBC')
   async addBC(@Body() input: BorderCrossEntity) {
     return await this.bcService.addBc(input);
+  }
+  @Get('getAllBC')
+  async getAllBC()
+  {
+    return await this.bcService.getAllBC();
   }
   @Get('getOneBC/:username')
   async getOneBC(@Param('username') username: string) {

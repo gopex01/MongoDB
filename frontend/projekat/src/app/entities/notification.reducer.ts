@@ -9,11 +9,11 @@ export interface State extends EntityState<Notification> {
 }
 
 export function selectNotificationId(n: Notification): string {
-  return n.Id.toString();
+  return n.id.toString();
 }
 
 export function sortByDateAndTime(a: Notification, b: Notification): number {
-  return a.Id - b.Id;
+  return a.id - b.id;
 }
 
 export const adapter: EntityAdapter<Notification> = createEntityAdapter<Notification>({

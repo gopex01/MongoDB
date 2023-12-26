@@ -25,7 +25,7 @@ export class TermComponent implements OnInit{
   }
   change()
   {
-    this.bcService.checkTerm(this.term?.Id!,this.isCrossed,this.isComeBack,this.irregulations);
+    this.bcService.checkTerm(this.term?.id!,this.isCrossed,this.isComeBack,this.irregulations);
   }
 
 }

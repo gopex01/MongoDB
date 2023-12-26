@@ -28,17 +28,17 @@ export class NotificationComponent implements OnInit{
   markAsRead()
   {
     console.log("Mark as read component");
-    this.store.dispatch(deleteNotification({Id: this.notification!.Id.toString()}));
-    this.notService.markAsRead(this.notification!.Id);
+    this.store.dispatch(deleteNotification({Id: this.notification!.id.toString()}));
+    this.notService.markAsRead(this.notification!.id);
   }
   acceptTerm()
   {
-    this.termService.acceptTerm(this.notification!.Id);
+    this.termService.acceptTerm(this.notification!.id);
     this.dialog.open(DialogSuccessAcceptedTermComponent);
   }
   declineTerm()
   {
-    this.termService.declineTerm(this.notification!.Id);
+    this.termService.declineTerm(this.notification!.id);
     this.dialog.open(DialogDeclineTermComponent);
   }
 

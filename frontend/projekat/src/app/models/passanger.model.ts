@@ -1,7 +1,7 @@
 export interface Passanger{
-    Name:string;
-    NumberOfPassport:string;
+    name:string;
+    numberOfPassport:string;
     JMBG:string;
-    IdNumber:string;
-    Age:number;
+    idNumber:string;
+    age:number;
 }

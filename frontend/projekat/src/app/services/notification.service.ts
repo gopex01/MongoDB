@@ -4,6 +4,7 @@ import { selectAuthToken, selectUsername } from '../selectors/login.selector';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogErrorAllComponent } from '../dialog-error-all/dialog-error-all.component';
+import { selectUserId } from '../selectors/user-info.selector';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { DialogErrorAllComponent } from '../dialog-error-all/dialog-error-all.co
 export class NotificationService {
 
 
+  idUser:number|undefined;
   route:string;
   username:string;
   headers:HttpHeaders=new HttpHeaders();
@@ -27,15 +29,19 @@ export class NotificationService {
       });
     });
     this.username="";
+    this.idUser=0;
   }
-
   getNotifications()
   {
-    console.log(this.headers);
     this.store.select(selectUsername).subscribe((x)=>{
       this.username=x;
     });
-    return this.httpClient.get(this.route+`getNot/${this.username}`,{headers:this.headers});
+    this.store.select(selectUserId).subscribe(async (x)=>{
+      this.idUser=x;
+      console.log("User id je "+x);
+    })
+    return this.httpClient.get(this.route+`getPersonalNotifications/${this.idUser}`,{headers:this.headers})
+   // return this.httpClient.get(this.route+`getNot/${this.username}`,{headers:this.headers});
   }
   markAsRead(notId:number)
   {

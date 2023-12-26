@@ -5,9 +5,9 @@ export class AdminEntity {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
-  Username: string;
+  username: string;
   @Column()
-  Password: string;
+  password: string;
   @Column()
   rola:Role;
 }

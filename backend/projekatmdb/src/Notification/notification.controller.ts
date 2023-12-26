@@ -13,4 +13,9 @@ export class NotificationController {
   async getAllNotifications() {
     return this.notificationService.getAllNotifications();
   }
+  @Get('getPersonalNotifications/:idUser')
+  async getPersonalNotifications(@Param('idUser') IdUser:number)
+  {
+    return await this.notificationService.getNotificationOfUser(IdUser);
+  }
 }

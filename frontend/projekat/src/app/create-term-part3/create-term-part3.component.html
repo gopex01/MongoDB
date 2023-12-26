@@ -5,8 +5,8 @@
     <input type="number" [(ngModel)]=" NumberOfDays" placeholder="numberofdays">
     <input type="text" [(ngModel)]="PlaceOfResidence" placeholder="placeofresidence">
     <select [(ngModel)]="selectedBorderCross" (change)="onBorderCrossSelected()">
-      <option *ngFor="let borderCross of arrBC$ | async" [value]="borderCross.Name">
-        {{ borderCross.Name }}
+      <option *ngFor="let borderCross of arrBC$ | async" [value]="borderCross.name">
+        {{ borderCross.name }}
       </option>
   </select>
   <mat-form-field>

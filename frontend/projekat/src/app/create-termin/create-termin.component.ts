@@ -34,11 +34,11 @@ export class CreateTerminComponent implements OnInit{
   addPass()
   {
     let psg:Passanger={
-      Name:this.vrednostName,
-      NumberOfPassport:this.vrednostNumOfPassp,
+      name:this.vrednostName,
+      numberOfPassport:this.vrednostNumOfPassp,
       JMBG:this.vrednostJMBG,
-      IdNumber:this.vrednostIdNumber,
-      Age:this.vrednostAge
+      idNumber:this.vrednostIdNumber,
+      age:this.vrednostAge
     };
     this.passArr.push(psg);
     this.vrednostName="";
@@ -56,7 +56,7 @@ export class CreateTerminComponent implements OnInit{
   }
   ukloniPass(IdNumber:any)
   {
-    this.passArr=this.passArr.filter(passenger=>passenger.IdNumber!==IdNumber);
+    this.passArr=this.passArr.filter(passenger=>passenger.idNumber!==IdNumber);
     console.log(this.passArr);
     
   }

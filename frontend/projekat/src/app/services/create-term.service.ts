@@ -4,6 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { TermState } from '../reducers/create-term.reducer';
 import { selectBorderCross, selectTermState } from '../selectors/create-term.selector';
 import { selectAuthToken, selectUsername } from '../selectors/login.selector';
+import { selectUserId } from '../selectors/user-info.selector';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { selectAuthToken, selectUsername } from '../selectors/login.selector';
 export class CreateTermService {
 
   headers:HttpHeaders=new HttpHeaders();
+  idUser:number|undefined;
   username:string;
   route:string;
   constructor(private httpClient:HttpClient,private store:Store) 
@@ -58,7 +60,10 @@ export class CreateTermService {
     this.store.pipe(select(selectUsername)).subscribe((username:string)=>{
       this.username=username;
     });
-    return this.httpClient.get(this.route+`getPersonalTerms/${this.username}`,{headers:this.headers});
+    this.store.pipe(select(selectUserId)).subscribe(async(x)=>{
+      this.idUser=x;
+    })
+    return this.httpClient.get(this.route+`getTermsOfUser/${this.idUser}`,{headers:this.headers});
   }
   acceptTerm(idNot:number)
   {

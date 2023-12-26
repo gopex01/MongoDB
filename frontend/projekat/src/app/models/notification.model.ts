@@ -1,6 +1,6 @@
 export interface Notification{
-    Id:number;
-    Content:string;
-    IsRead:Boolean;
-    DateAndTime:Date;
+    id:number;
+    content:string;
+    isRead:Boolean;
+    dateAndTime:Date;
 }

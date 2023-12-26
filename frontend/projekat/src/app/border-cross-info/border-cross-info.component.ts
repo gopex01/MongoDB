@@ -36,7 +36,7 @@ export class BorderCrossInfoComponent implements OnInit{
       this.bcName=params['name'];
     });
     this.store.pipe(select(selectBCState)).subscribe((currentState:BCState)=>{
-      this.selectedBC=currentState.arrBc.find(bc=>bc.Name==this.bcName);
+      this.selectedBC=currentState.arrBc.find(bc=>bc.name==this.bcName);
       if(this.selectedBC)
       {
         console.log(this.selectedBC);

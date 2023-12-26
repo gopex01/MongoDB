@@ -5,13 +5,17 @@ export const selectUserInfo=createSelector(
     selectUserState,
     (state)=>state.user
 );
+export const selectUserId=createSelector(
+    selectUserState,
+    (state)=>state.user?.id
+)
 export const selectUserEmail=createSelector(
     selectUserState,
-    (state)=>state.user?.Email
+    (state)=>state.user?.email
 )
 export const selectUserName=createSelector(
     selectUserState,
-    (state)=>state.user?.NameAndSurname
+    (state)=>state.user?.nameAndSurname
 );
 /*export const selectUsername=createSelector(
     selectUserState,
@@ -19,5 +23,5 @@ export const selectUserName=createSelector(
 );*/
 export const selectUserPhone=createSelector(
     selectUserState,
-    (state)=>state.user?.PhoneNumber
+    (state)=>state.user?.phoneNumber
 )

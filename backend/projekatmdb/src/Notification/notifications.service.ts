@@ -36,4 +36,16 @@ export class NotificationService {
     }
     return notification;
   }
+  async getNotificationOfUser(userId:number):Promise<INotification[]|null>
+  {
+    const notifications=await this.notificationModel.find({userId:userId});
+    const retarr=[];
+    notifications.forEach(async not=>{
+      if(not.isRead==false)
+      {
+        retarr.push(not);
+      }
+    });
+    return await retarr;
+  }
 }

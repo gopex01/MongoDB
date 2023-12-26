@@ -40,6 +40,10 @@ export class TermService {
     const term = await this.termModule.findOne({ id:idTerm });
     return term;
   }
+  async getTerms()
+  {
+    return await this.termModule.find();
+  }
   async getTermsOfUser(userId: number) {
     const terms = await this.termModule.find({ userId: userId });
     if (!terms) return null;
