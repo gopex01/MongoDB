@@ -1,0 +1,8 @@
+<select [(ngModel)]="selectedBorderCross" (change)="onBorderCrossSelected()">
+    <option *ngFor="let borderCross of arrBc$ | async" [value]="borderCross.Name">
+      {{ borderCross.Name }}
+    </option>
+</select>
+  
+
+<button [routerLink]="['/CreateTerm4']" (click)="next()">Next</button>

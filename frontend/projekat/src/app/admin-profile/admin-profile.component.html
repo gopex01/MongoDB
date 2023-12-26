@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="./admin-profile.component.css">
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
+
+        <!-- Navbar -->
+        <ul>
+            <li>
+                <a href="#sign-out">
+                    <i class="fa fa-sign-out-alt fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="" width="100" height="100">
+
+            <div class="name">
+                {{'ADMIN'}}
+            </div>
+            
+            
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile" class="active">Profile</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a [routerLink]="['/ListBCAdmin']">See all BC</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a [routerLink]="['/CreateBC']">Create BC</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a [routerLink]="['/AllUsers']">See all Users</a>
+                <hr align="center">
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="bold-text">Number Of Users</td>
+                            <td class="bold-text">:</td>
+                            <td>{{(this.admin$|async)?.numOfUsers}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold-text">Number Of Border Cross</td>
+                            <td class="bold-text">:</td>
+                            <td>{{(this.admin$|async)?.numOfBC}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold-text">Number of Terms</td>
+                            <td class="bold-text">:</td>
+                            <td>Current active terms:{{(this.admin$|async)?.numOfTerms}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+   
+ 
+</body>
+</html>

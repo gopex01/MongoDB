@@ -1,0 +1,113 @@
+
+html,body{
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #12141d 100%);
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+}
+.contact{
+  margin-top: 20px;
+  border: 1px solid ivory; /* boja ivice */
+  border-radius: 10px; /* zaobljene ivice */
+  background: radial-gradient(ellipse at bottom, #5078A0 0%, #1B2735 100%); /* sivkasta peščana boja */
+  padding: 10px; 
+  color: #f5f5dc;
+}
+
+.info {
+  width: 45%;
+  
+  margin-right: 25px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.top{
+  display: flex;
+  margin-top: 50px;
+  flex-direction: row;
+  border: 1px solid ivory; /* boja ivice */
+  border-radius: 10px; /* zaobljene ivice */
+  background: radial-gradient(ellipse at bottom, #5078A0 0%, #1B2735 100%); /* sivkasta peščana boja */
+  padding: 10px; /* dodaj padding prema potrebi */
+}
+.bottom{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid ivory; /* boja ivice */
+  border-radius: 10px; /* zaobljene ivice */
+  background: radial-gradient(ellipse at bottom, #5078A0 0%, #1B2735 100%);
+  padding: 10px; /* dodaj padding prema potrebi */
+  margin-top: 15px;
+}
+.zastava{
+  width: 50%;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+.slike {
+  margin-top: 50px;
+  position: relative;
+  width: 45%;
+  margin-left: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid ivory; /* boja ivice */
+  border-radius: 10px; /* zaobljene ivice */
+  background: radial-gradient(ellipse at bottom, #5078A0 0%, #1B2735 100%); /* sivkasta peščana boja */
+  padding: 10px; /* dodaj padding prema potrebi */
+}
+
+.carousel {
+  width: 70%; /* Prilagodi veličinu slajdera prema potrebama */
+  margin: auto;
+}
+
+img {
+  width: 100%; /* Slike će popuniti širinu roditeljskog kontejnera */
+  height: auto; /* Očuvaćemo odnos širine i visine originalne slike */
+  display: block; /* Eliminisanje dodatnog prostora ispod slike */
+}
+
+.custom-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.custom-navigation button {
+  background-color: rgba(0, 0, 0, 0.5); /* Providna pozadina */
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-navigation button:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Providna pozadina na hover */
+}
+.bold-text {
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+}
+p{
+  font-family: 'Poppins', sans-serif;
+  color:ivory
+}
+h1,h2,h3{
+  font-family: 'Poppins', sans-serif;
+  color:ivory
+}
+

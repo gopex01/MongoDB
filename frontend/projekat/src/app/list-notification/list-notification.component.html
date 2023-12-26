@@ -1,0 +1,6 @@
+<div class="mainDiv">
+    <div *ngFor="let not of arrNotification$ |async" class="card">
+        <app-notification [notification]="not"></app-notification>
+    </div>
+</div>
+

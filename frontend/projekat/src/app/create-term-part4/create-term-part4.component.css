@@ -1,0 +1,35 @@
+#cetvrtideo{
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    width: 40%;
+    margin-left: 30%;
+}
+input {
+    margin-top: 10px;
+    padding: 8px;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #ccc; /* Add a border to input fields */
+    width: 40%;
+    border-radius: 4px; /* Add border radius for rounded corners */
+    margin-left: 25%;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: darkgrey;
+    color: #fff; /* Set font color for better contrast */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+    margin-left: 32%;
+
+}
+h1, h3 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #333; /* Set a font color */
+}

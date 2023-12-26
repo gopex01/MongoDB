@@ -1,0 +1,31 @@
+.forchange{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+button {
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: darkgrey;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  
+  }
+  p{
+    color: ivory;
+  } 
+  h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    font-family: 'Poppins', sans-serif;
+    color:ivory; /* Tamnija boja teksta */
+  }
+  .bold-text {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: ivory;
+  }

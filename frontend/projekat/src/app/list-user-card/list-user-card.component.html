@@ -1,0 +1,5 @@
+<div class="mainDiv">
+    <div *ngFor="let user of arrUsers$|async" class="card">
+        <app-user-card [user]="user"></app-user-card>
+    </div>
+</div>

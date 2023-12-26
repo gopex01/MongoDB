@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="./profil.component.css">
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
+
+        <!-- Navbar -->
+        <ul>
+            <li>
+                <a >
+                    <span class="icon-count">{{(notificationNumber$ | async)}}</span>
+                    <i [routerLink]="['/Notifications']" class="fa fa-envelope fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon-count"></span>
+                    <i class="fa fa-cog fa-2x" [routerLink]="['/ProfileSettings']"></i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i [routerLink]="['']" class="fa fa-sign-out-alt fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="" width="100" height="100">
+
+            <div class="name">
+                {{ 'USER'}}
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile" class="active">Profile</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a [routerLink]="['/ListBC']">LISTBC</a>
+                <hr aling="center">
+            </div>
+            <div class="url">
+                <a [routerLink]="['/CreateTerm']">Create term</a>
+                <hr aling="center">
+            </div>
+            <div class="url">
+                <a [routerLink]="['/PersonalTerms']">List terms</a>
+                <hr align="center">
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="bold-text">Name & Surname</td>
+                            <td class="bold-text">:</td>
+                            <td>{{(user$ | async)?.NameAndSurname || ""}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold-text">Phone Number</td>
+                            <td class="bold-text">:</td>
+                            <td>{{(user$ | async )?.PhoneNumber || ""}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold-text">Email</td>
+                            <td class="bold-text">:</td>
+                            <td>{{(user$ | async )?.Email || ""}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold-text">Username</td>
+                            <td class="bold-text">:</td>
+                            <td>{{(user$ | async )?.Username || ""}}</td>
+                        </tr>
+                        <tr>
+                            <td class="bold-text">JMBG</td>
+                            <td class="bold-text">:</td>
+                            <td>{{(user$ | async )?.JMBG||""}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+ 
+</body>
+</html>

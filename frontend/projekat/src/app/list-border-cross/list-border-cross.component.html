@@ -1,0 +1,11 @@
+<div class="mainDiv">
+<div class="prelazi">
+<div *ngFor="let bc of arrBc$ | async" class="prelaz">
+    <!--{{ bc.Name }} - {{ bc.Location }} - {{ bc.Country }}-->
+    <app-border-cross [borderCross]="bc"></app-border-cross>
+</div>
+</div>
+<div class="zasliku">
+<img src="../../assets/images/Serbia-map-features-locator.jpg">
+</div>
+</div>

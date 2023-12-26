@@ -1,0 +1,36 @@
+<h1>Profile Settings</h1>
+<div class="main">
+    <div class="nameAndsurname">
+        <p>Name & Surname {{name}}</p>
+        <button class="change-btn" (click)="changeVisibiltyIName()">change</button>
+        <button class="save-changes-btn" (click)="changeName()">savechanges</button>
+        <input *ngIf="isVisibleIName" [(ngModel)]="newName" placeholder="Enter new Name">
+    </div>
+    <div class="email">
+        <p>Email:{{email}}</p>
+        <button class="change-btn" (click)="changeVisibiltyIEmail()">change</button>
+        <button class="save-changes-btn" (click)="changeEmail()">savechanges</button>
+        <input *ngIf="isVisibleIEmail"[(ngModel)]="newEmail" placeholder="Enter new Email">
+    </div>
+    <div class="phonenumber">
+        <p>Phone Number:{{phone}}</p>
+        <button class="change-btn" (click)="changeVisibiltyIPhone()">change</button>
+        <button class="save-changes-btn" (click)="changePhone()">savechanges</button>
+        <input *ngIf="isVisibleIPhone" [(ngModel)]="newPhone" placeholder="Enter new Phone Number">
+    </div>
+    <div class="username">
+        <p>Username:{{username}}</p>
+        <button class="change-btn" (click)="changeVisibiltyIUsername()">change</button>
+        <button class="save-changes-btn" (click)="changeUsername()">savechanges</button>
+        <input *ngIf="isVisibleIUsername" [(ngModel)]="newUsername" placeholder="Enter new Username">
+    </div>
+    <div class="deactivate">
+        <button (click)="changeVisibiltyDeactivate()">Deactivate account</button>
+        <input *ngIf="isVisibleDeactivateInput" placeholder="Enter password" [(ngModel)]="passwordValue">
+        <button *ngIf="isVisibleDeactivateButton" (click)="deactivate()">Deactivate</button>
+    </div>
+</div>
+
+
+
+

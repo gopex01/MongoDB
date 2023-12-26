@@ -1,0 +1,23 @@
+/* Stilizacija <select> elementa */
+select {
+    width: 200px; /* Prilagodite širinu prema potrebi */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Stilizacija opcija unutar <select> elementa */
+  option {
+    background-color: #fff; /* Boja pozadine opcija */
+    color: #333; /* Boja teksta opcija */
+    padding: 8px;
+  }
+  
+  /* Stilizacija <select> elementa kada je fokusiran */
+  select:focus {
+    outline: none;
+    border-color: #4CAF50; /* Boja okvira kada je fokusiran */
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1); /* Senka kada je fokusiran */
+  }
+  

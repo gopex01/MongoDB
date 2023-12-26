@@ -1,0 +1,34 @@
+<div class="card">
+    <h2>Term</h2>
+    <div class="text">
+        <p><span class="bold-text">ID:</span>{{term?.Id}}</p>
+        <p><span class="bold-text">Num Of Passangers:</span>{{term?.NumOfPassangers}}</p>
+        <p class="bold-text">Passangers:</p>
+        <p *ngFor=" let p of term?.PassangerList"><span class="bold-text">Name:</span>{{p.Name}}
+        </p>   
+        <p><span class="bold-text">Car Brand:</span>{{term?.CarBrand}}</p>  
+        <p><span class="bold-text">Num Of Registration Plates:</span>{{term?.NumOfRegistrationPlates}}</p>
+        <p><span class="bold-text">Chassis Number</span>{{term?.ChassisNumber}}</p>
+        <p><span class="bold-text">Number Of Days:</span>{{term?.NumberOfDays}}</p>
+        <p><span class="bold-text">Place Of Residence:</span>{{term?.PlaceOfResidence}}</p>
+        <p><span class="bold-text">Date And Time:</span>{{term?.DateAndTime}}</p>
+        <p><span class="bold-text">Is Paid?:</span>{{term?.IsPaid}}</p>
+        <p><span class="bold-text">Is Crossed?:</span>{{term?.IsCrossed}}</p>
+        <p><span class="bold-text">IS Comeback?:</span>{{term?.IsComeBack}}</p>
+        <p><span class="bold-text">Irregularities:</span>{{term?.Irregularities}}</p>              
+    </div>
+    <div class="forchange">
+        <label>
+            <p>Is crossed?</p>
+            <input type="radio" name="gender{{term?.Id}}" [(ngModel)]="isCrossed" value="Yes">Yes
+            <input type="radio" name="gender{{term?.Id}}" [(ngModel)]="isCrossed" value="No">No
+        </label>
+        <label>
+            <p>Is comeback?</p>
+            <input type="radio" name="gender2{{term?.Id}}" [(ngModel)]="isComeBack" value="Yes">Yes
+            <input type="radio" name="gender2{{term?.Id}}" [(ngModel)]="isComeBack" value="No">No
+        </label>
+        <input placeholder="Add irregularities if any" [(ngModel)]="irregulations">
+        <button (click)="change()">Save changes</button>
+    </div>
+</div>

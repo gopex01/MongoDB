@@ -1,0 +1,39 @@
+<body>
+    <div class="main">
+        <div class="info">
+            <div class="top">
+                <div class="text">
+                <h1>{{selectedBC.Name}}</h1>
+                <p><span class="bold-text">Location:</span> {{selectedBC.Location}}</p>
+                
+                <p><span class="bold-text">Country:</span> {{selectedBC.Country}}</p>
+                <p><span class="bold-text">Type:</span> {{selectedBC.Type}}</p>
+                <p><span class="bold-text">Work Hour:</span> {{selectedBC.WorkHour}}</p>
+                <p><span class="bold-text">Transport Connection:</span> {{selectedBC.TransportConnections}}</p>
+                <p><span class="bold-text">Capacity:</span> {{selectedBC.Capacity}}</p>
+                </div>
+                <div class="mainImg">
+                    <img src="../../assets/images/srbija.jpeg" class="zastava">
+                    <div class="contact">
+                        <p><span class="bold-text">Email:</span>{{selectedBC.Email}}</p>
+                        <p><span class="bold-text">Phone:</span>{{selectedBC.PhoneNumber}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <p>{{selectedBC.Description}}</p>
+            </div>
+        </div>
+        <div class="slike">
+            <ngx-slick-carousel class="carousel" [config]="slickCarouselConfig" #slickModal>
+                <div *ngFor="let image of images" class="slika">
+                    <img *ngIf="selectedImage === image" src="{{image}}" alt="Slide">
+                </div>
+            </ngx-slick-carousel>
+            <div class="custom-navigation">
+                <button (click)="previousImage()">❮</button>
+                <button (click)="nextImage()">❯</button>
+            </div>
+        </div>
+    </div>
+</body>

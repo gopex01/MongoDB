@@ -1,0 +1,11 @@
+<div class="main">
+    <div class="borders">
+        <div *ngFor="let bc of arrBc$ |async">
+            <app-border-cross [borderCross]="bc"></app-border-cross>
+        </div>
+    </div>
+    <div class="delete">
+        <input placeholder="Enter BC Name" [(ngModel)]="bcName">
+        <button (click)="deleteBC()">Delete</button>
+    </div>
+</div>

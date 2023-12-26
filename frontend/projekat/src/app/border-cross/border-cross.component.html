@@ -1,0 +1,13 @@
+<!-- app-border-cross-card.component.html -->
+<div class="card">
+  <div class="left">
+    <h1>{{ borderCross?.Name }}</h1>
+    <p>{{ borderCross?.Country }}</p>
+    <p>{{ borderCross?.Capacity }}</p>
+    <button [routerLink]="['/BCInfo']" [queryParams]="{name:borderCross?.Name}">Info</button>
+  </div>
+  <div class="right">
+    <img src={{bcName}}>
+  </div>
+</div>
+  

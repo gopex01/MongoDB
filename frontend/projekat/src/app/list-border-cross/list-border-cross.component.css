@@ -1,0 +1,19 @@
+img{
+    width: 100%;
+    height: 100%;
+}
+.mainDiv{
+    display: flex;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #12141d 100%);
+}
+.prelazi{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.zasliku{
+    display: flex;
+    width: 100%;
+    height: 50%;
+}

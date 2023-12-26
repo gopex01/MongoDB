@@ -1,0 +1,20 @@
+
+<h1>CREATE TERM</h1>
+<h3>Travel information</h3>
+<div id="trecideo">
+    <input type="number" [(ngModel)]=" NumberOfDays" placeholder="numberofdays">
+    <input type="text" [(ngModel)]="PlaceOfResidence" placeholder="placeofresidence">
+    <select [(ngModel)]="selectedBorderCross" (change)="onBorderCrossSelected()">
+      <option *ngFor="let borderCross of arrBC$ | async" [value]="borderCross.Name">
+        {{ borderCross.Name }}
+      </option>
+  </select>
+  <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <button (click)="next3()" [routerLink]="['/CreateTerm4']">NEXT</button>
+</div>

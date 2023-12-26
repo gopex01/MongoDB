@@ -1,0 +1,16 @@
+button {
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    background-color: darkgrey;
+    color: #fff; /* Set font color for better contrast */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  } 
+  .bold-text {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+  }
+  

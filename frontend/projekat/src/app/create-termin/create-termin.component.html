@@ -1,0 +1,20 @@
+<h1>CREATE TERM</h1>
+<h3>Passenger data</h3>
+<div class="prvideo">
+    <input type="number" [(ngModel)]="NumOfPassangers" placeholder="Num passenger">
+    <input type="text" [(ngModel)]="vrednostName" placeholder="Name">
+    <input type="text" [(ngModel)]="vrednostNumOfPassp" placeholder="NumOfPassport">
+    <input type="text" [(ngModel)]="vrednostJMBG" placeholder="JMBG">
+    <input type="text" [(ngModel)]="vrednostIdNumber" placeholder="IdNumber">
+    <input type="text" [(ngModel)]="vrednostAge" placeholder="Age">
+    <button (click)="addPass()">Dodaj putnika</button>
+    <button (click)="next()" [routerLink]="['/CreateTerm2']">NEXT</button>
+</div>
+<div class="dodatiputnici">
+    <div *ngFor="let p of passArr" class="putnik">
+        <p><span class="bold-text">Name: </span>{{p.Name}}</p>
+        <p><span class="bold-text">Age: </span>{{p.Age}}</p>
+        <p><span class="bold-text">Number Of Passport: </span>{{p.NumberOfPassport}}</p>
+        <button (click)="ukloniPass(p.IdNumber)">Ukloni</button>
+    </div>
+</div>
