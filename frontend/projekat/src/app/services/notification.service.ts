@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogErrorAllComponent } from '../dialog-error-all/dialog-error-all.component';
 import { selectUserId } from '../selectors/user-info.selector';
+import { switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +37,11 @@ export class NotificationService {
     this.store.select(selectUsername).subscribe((x)=>{
       this.username=x;
     });
-    this.store.select(selectUserId).subscribe(async (x)=>{
-      this.idUser=x;
-      console.log("User id je "+x);
-    })
-    return this.httpClient.get(this.route+`getPersonalNotifications/${this.idUser}`,{headers:this.headers})
-   // return this.httpClient.get(this.route+`getNot/${this.username}`,{headers:this.headers});
+    console.log('pozvana getnot');
+    return this.store.select(selectUserId).pipe(
+      switchMap(p=>this.httpClient.get(this.route+`getPersonalNotifications/${this.idUser}`,{headers:this.headers}))
+    );
+   
   }
   markAsRead(notId:number)
   {

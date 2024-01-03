@@ -5,6 +5,7 @@ import { TermState } from '../reducers/create-term.reducer';
 import { selectBorderCross, selectTermState } from '../selectors/create-term.selector';
 import { selectAuthToken, selectUsername } from '../selectors/login.selector';
 import { selectUserId } from '../selectors/user-info.selector';
+import { switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,11 +31,8 @@ export class CreateTermService {
   createTerm()
   {
    
-    let obj;
-    let prelaz;
-    this.store.pipe(select(selectUsername)).subscribe((username:string)=>{
-      this.username=username;
-    });
+    let obj:any;
+    let prelaz:any;
     this.store.pipe(select(selectTermState)).subscribe((termState:TermState)=>{
       obj=termState;
       console.log(obj);
@@ -43,10 +41,13 @@ export class CreateTermService {
       prelaz=BorderCross;
       console.log(prelaz);
     });
-    
+    return this.store.select(selectUserId).pipe(
+      switchMap(p=>this.httpClient.post(this.route+`addTerm/${p}/${prelaz}`,obj,{headers:this.headers}))
+    )
    
-    return this.httpClient.post(this.route+`addTerm/${this.username}/${prelaz}`
-    ,obj,{headers:this.headers});
+    return this.httpClient.post(this.route+`addTerm/${this.idUser}/${prelaz}`
+      ,obj,{headers:this.headers});
+   
   }
   getAllTerms()
   {

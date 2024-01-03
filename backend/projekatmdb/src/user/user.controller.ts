@@ -28,7 +28,7 @@ export class UserController{
         return this.userService.verifyAccount(userName);
     }
 
-    @UseGuards(JwtAuthGuard,UserGuard)
+   // @UseGuards(JwtAuthGuard,UserGuard)
     @Get('getOneUser/:username')
     async getOneUser(@Param('username')user: string)
     {

@@ -49,8 +49,19 @@ export class TermService {
     if (!terms) return null;
     return terms;
   }
-  async getTermsOfBC(bcName: string) {
-    return await this.termModule.find({ Name: bcName });
+  async getTermsOfBC(username:string)
+  {
+    const bc=await this.bcService.getOneBC(username);
+    if(bc)
+    {
+      const terms=await this.termModule.find({borderCrossId:bc.Id});
+      if(!terms)return null;
+      return terms;
+
+    }
+    else{
+      return null;
+    }
   }
   async findNextAvailableTerm(selectedDate: Date): Promise<Date> {
     if (!(selectedDate instanceof Date)) {

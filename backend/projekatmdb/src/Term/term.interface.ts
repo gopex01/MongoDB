@@ -1,9 +1,10 @@
 
 import { Document } from 'mongoose';
+import { Passanger } from './passanger.interface';
 export interface ITerm extends Document{
    id:number;
    numOfPassangers:number;
-   passangerList:string;
+   passangerList:Passanger[];
    carBrand:string;
    numOfRegistationPlates:string;
    chassisNumber:string;

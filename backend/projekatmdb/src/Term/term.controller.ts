@@ -12,10 +12,10 @@ export class TermController{
     {
         return await this.termService.addTerm(newTerm,idUser,bcName);
     }
-    @Get('getTerm/:numpass')
-    async getTerm(@Param('numpass') numpass:number)
+    @Get('getTerms/:username')
+    async getTerm(@Param('username') username:string)
     {
-        return await this.termService.getTerm(numpass);
+        return await this.termService.getTermsOfBC(username);
     }
     @Get('getTermsOfUser/:userId')
     async getTermsOfUser(@Param('userId') userId:number)

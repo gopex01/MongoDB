@@ -1,4 +1,5 @@
 import { Schema,Prop, SchemaFactory } from "@nestjs/mongoose";
+import { Passanger } from "./passanger.interface";
 
 @Schema()
 export class TermEntity{
@@ -6,8 +7,8 @@ export class TermEntity{
     id:number;
     @Prop()
     numOfPassangers:number;
-    @Prop()
-    passangerList:string;
+    @Prop({ type: [{ name: String, numberOfPassport: String, JMBG: String, idNumber: Number, age: Number }] })
+    passangerList:Passanger[];
     @Prop()
     carBrand:string;
     @Prop()
