@@ -16,6 +16,7 @@ export class NotificationService {
       dateAndTime: new Date(),
       userId: userId,
       idTerm: idTerm,
+      expireAt:new Date(Date.now()+24*60*60*1000),//istice posle 24h
     };
     let createdNotification = new this.notificationModel(newNotification);
     return createdNotification.save();

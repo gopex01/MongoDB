@@ -37,8 +37,7 @@ export class TermEntity{
     borderCrossId:number;
 }
 export const TermSchema=SchemaFactory.createForClass(TermEntity);
-// Utility funkcija za generisanje jedinstvenih identifikatora
 export function generateUniqueId(): number {
-    return Date.now(); // Prilagodite funkciju prema svojim potrebama
+    return Date.now(); 
   }
   

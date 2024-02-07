@@ -31,8 +31,8 @@ export class CreateTermPart4Component implements OnInit{
   {
     if(this.BrojRacuna.length===16)
     {
-      let IsPaid:boolean=true;
-      this.store.dispatch(setFourthPart({IsPaid}));
+      let isPaid:boolean=true;
+      this.store.dispatch(setFourthPart({isPaid}));
       let x=this.ctService.createTerm();
       x.subscribe((p)=>{
         this.dialog.open(DialogSuccessTermComponent);

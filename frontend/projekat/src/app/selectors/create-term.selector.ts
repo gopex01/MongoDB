@@ -5,26 +5,26 @@ export const selectTermState=createFeatureSelector<TermState>('term');
 export const setFirstPart=createSelector(
     selectTermState,
     (state)=>{
-    state.NumOfPassangers;
-    state.PassangerList;
+    state.numOfPassangers;
+    state.passangerList;
 }
 );
 export const setSecondPart=createSelector(
     selectTermState,
     (state)=>{
-        state.NumOfRegistrationPlates,
-        state.ChassisNumber
+        state.numOfRegistrationPlates,
+        state.chassisNumber
     }
 );
 export const setThirdPart=createSelector(
     selectTermState,
     (state)=>{
-        state.NumberOfDays,
-        state.PlaceOfResidence,
-        state.DateAndTime
+        state.numberOfDays,
+        state.placeOfResidence,
+        state.dateAndTime
     }
 );
 export const selectBorderCross=createSelector(
     selectTermState,
-    (state)=>state.BorderCross
+    (state)=>state.borderCross
 )

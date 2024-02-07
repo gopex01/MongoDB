@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { TermService } from "./term.service";
 import { TermEntity } from "./term.schema";
 import { ITerm } from "./term.interface";
@@ -10,6 +10,7 @@ export class TermController{
     @Post('addTerm/:idUser/:bcName')
     async addTerm(@Body() newTerm:ITerm,@Param('idUser') idUser:number, @Param('bcName') bcName:string)
     {
+        //console.log('Iz kontroler:',newTerm,newTerm.dateAndTime);
         return await this.termService.addTerm(newTerm,idUser,bcName);
     }
     @Get('getTerms/:username')
@@ -37,6 +38,16 @@ export class TermController{
     async acceptTerm(@Param('idNotification') idNot:number, @Param('answer') answer:boolean)
     {
         return await this.termService.acceptTerm(idNot,answer);
+    }
+    @Delete('deleteTerm/:idUser')
+    async deleteTerm(@Param('idUser') idUser:number)
+    {
+        await this.termService.deleteTerm(idUser);
+    }
+    @Get('getTermId/:idTerm')
+    async getTermId(@Param('idTerm') idTerm:string)
+    {
+        return this.termService.getTermId(idTerm);
     }
 
 }

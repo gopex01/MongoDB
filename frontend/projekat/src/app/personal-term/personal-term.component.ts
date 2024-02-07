@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Term } from '../models/term.model';
+import { CreateTermService } from '../services/create-term.service';
 
 @Component({
   selector: 'app-personal-term',
@@ -9,11 +10,14 @@ import { Term } from '../models/term.model';
 export class PersonalTermComponent implements OnInit{
   @Input()
   term:Term|null;
-  constructor()
+  constructor(private termService:CreateTermService)
   {
     this.term=null;
   }
   ngOnInit(): void {
   }
-
+  deleteTerm()
+  {
+    this.termService.deleteTerm(this.term!.id).subscribe(p=>p);
+  }
 }

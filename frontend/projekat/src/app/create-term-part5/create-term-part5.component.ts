@@ -29,8 +29,8 @@ export class CreateTermPart5Component implements OnInit{
   next()
   {
     console.log('Selektovan je ',this.selectedBorderCross);
-    let BorderCross:any=this.selectedBorderCross;
-    this.store.dispatch(termActions.setFifthPart({BorderCross}))
+    let borderCross:any=this.selectedBorderCross;
+    this.store.dispatch(termActions.setFifthPart({borderCross}))
   }
 
 }

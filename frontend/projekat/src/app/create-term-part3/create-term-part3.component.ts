@@ -34,10 +34,10 @@ export class CreateTermPart3Component implements OnInit{
   }
   next3()
   {
-    this.store.dispatch(setThirdPart({NumberOfDays:this.NumberOfDays,PlaceOfResidence:this.PlaceOfResidence,DateAndTime:this.selectedDate}));
+    this.store.dispatch(setThirdPart({numberOfDays:this.NumberOfDays,placeOfResidence:this.PlaceOfResidence,dateAndTime:this.selectedDate}));
     console.log('Selektovan je ',this.selectedBorderCross);
-    let BorderCross:any=this.selectedBorderCross;
-    this.store.dispatch(termActions.setFifthPart({BorderCross}))
+    let borderCross:any=this.selectedBorderCross;
+    this.store.dispatch(termActions.setFifthPart({borderCross}))
     //this.ctService.createTerm();
     
   }

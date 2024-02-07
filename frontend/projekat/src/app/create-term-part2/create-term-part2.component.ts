@@ -21,9 +21,9 @@ export class CreateTermPart2Component implements OnInit{
   }
   next2()
   {
-    let CarBrand:string=this.CarBrand;
-    let NumOfRegistrationPlates:string=this.NumOfRegistrationPlates;
-    let ChassisNumber:string=this.ChassisNumber;
-    this.store.dispatch(setSecondPart({CarBrand,NumOfRegistrationPlates,ChassisNumber}))
+    let carBrand:string=this.CarBrand;
+    let numOfRegistrationPlates:string=this.NumOfRegistrationPlates;
+    let chassisNumber:string=this.ChassisNumber;
+    this.store.dispatch(setSecondPart({carBrand,numOfRegistrationPlates,chassisNumber}))
   }
 }

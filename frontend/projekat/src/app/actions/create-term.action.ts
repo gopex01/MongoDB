@@ -3,23 +3,23 @@ import { Passanger } from "../models/passanger.model";
 
 export const setFirstPart=createAction(
     '[Term] Set First Part',
-    props<{NumOfPassangers:number,PassangerList:Passanger[]}>()
+    props<{numOfPassangers:number,passangerList:Passanger[]}>()
 );
 
 export const setSecondPart=createAction(
     '[Term] Set Second Part',
-    props<{CarBrand:string,NumOfRegistrationPlates:string,ChassisNumber:string}>()
+    props<{carBrand:string,numOfRegistrationPlates:string,chassisNumber:string}>()
 );
 
 export const setThirdPart=createAction(
     '[Term] Set Third Part',
-    props<{NumberOfDays:number,PlaceOfResidence:string,DateAndTime:Date}>()
+    props<{numberOfDays:number,placeOfResidence:string,dateAndTime:Date}>()
 );
 export const setFourthPart=createAction(
     '[Term] Set Fourth Part',
-    props<{IsPaid:boolean}>()
+    props<{isPaid:boolean}>()
 );
 export const setFifthPart=createAction(
     '[Term] Set Fifth Part',
-    props<{BorderCross:string|undefined}>()
+    props<{borderCross:string|undefined}>()
 );

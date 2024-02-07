@@ -2,62 +2,65 @@ import { createReducer, on } from "@ngrx/store";
 import { Passanger } from "../models/passanger.model";
 import * as termActions from "../actions/create-term.action"
 export interface TermState{
-    NumOfPassangers:number;
-    PassangerList:Passanger[];
-    CarBrand:string;
-    NumOfRegistrationPlates:string;
-    ChassisNumber:string;
-    NumberOfDays:number;
-    PlaceOfResidence:string;
-    DateAndTime:Date;
-    IsPaid:Boolean;
-    IsCrossed:Boolean;
-    IsComeBack:Boolean;
-    Irregularities:string;
-    BorderCross:string|undefined;
+    id:number;
+    numOfPassangers:number;
+    passangerList:Passanger[];
+    carBrand:string;
+    numOfRegistrationPlates:string;
+    chassisNumber:string;
+    numberOfDays:number;
+    placeOfResidence:string;
+    dateAndTime:Date;
+    isPaid:Boolean;
+    isCrossed:Boolean|undefined;
+    isComeBack:Boolean|undefined;
+    irregularities:string|undefined;
+    borderCross:string|undefined;
 }
+
 export const initialState:TermState={
-    NumOfPassangers:0,
-    PassangerList:[],
-    CarBrand:'',
-    NumOfRegistrationPlates:'',
-    ChassisNumber:'',
-    NumberOfDays:0,
-    PlaceOfResidence:'',
-    DateAndTime:new Date(2023),
-    IsPaid:false,
-    IsCrossed:false,
-    IsComeBack:false,
-    Irregularities:"Ne postoje",
-    BorderCross:''
+    id:0,
+    numOfPassangers:0,
+    passangerList:[],
+    carBrand:'',
+    numOfRegistrationPlates:'',
+    chassisNumber:'',
+    numberOfDays:0,
+    placeOfResidence:'',
+    dateAndTime:new Date(2023),
+    isPaid:false,
+    isCrossed:undefined,
+    isComeBack:undefined,
+    irregularities:undefined,
+    borderCross:''
 }
 export const reducerFinal=createReducer(
     initialState,
-    on(termActions.setFirstPart,(state,{NumOfPassangers,PassangerList})=>({
+    on(termActions.setFirstPart,(state,{numOfPassangers,passangerList})=>({
         ...state,
-        NumOfPassangers,
-        PassangerList
+        numOfPassangers,
+        passangerList
     })),
-    on(termActions.setSecondPart,(state,{CarBrand,NumOfRegistrationPlates,ChassisNumber})=>({
+    on(termActions.setSecondPart,(state,{carBrand,numOfRegistrationPlates,chassisNumber})=>({
         ...state,
-        CarBrand,
-        NumOfRegistrationPlates,
-        ChassisNumber
+        carBrand,
+        numOfRegistrationPlates,
+        chassisNumber
     })),
-    on(termActions.setThirdPart,(state,{NumberOfDays,PlaceOfResidence,DateAndTime})=>({
+    on(termActions.setThirdPart,(state,{numberOfDays,placeOfResidence,dateAndTime})=>({
         ...state,
-        NumberOfDays,
-        PlaceOfResidence,
-        DateAndTime
+        numberOfDays,
+        placeOfResidence,
+        dateAndTime
 
     })),
-    on(termActions.setFourthPart,(state,{IsPaid})=>({
+    on(termActions.setFourthPart,(state,{isPaid})=>({
         ...state,
-        IsPaid
+        isPaid
     })),
-    on(termActions.setFifthPart,(state,{BorderCross})=>({
+    on(termActions.setFifthPart,(state,{borderCross})=>({
         ...state,
-        BorderCross
+        borderCross
     }))
 );
 

@@ -39,7 +39,7 @@ export class NotificationService {
     });
     console.log('pozvana getnot');
     return this.store.select(selectUserId).pipe(
-      switchMap(p=>this.httpClient.get(this.route+`getPersonalNotifications/${this.idUser}`,{headers:this.headers}))
+      switchMap(p=>this.httpClient.get(this.route+`getPersonalNotifications/${p}`,{headers:this.headers}))
     );
    
   }

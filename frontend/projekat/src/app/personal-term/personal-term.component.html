@@ -4,7 +4,8 @@
         <p><span class="bold-text">Num Of Passangers: </span>{{term?.numOfPassangers}}</p>
         <p class="bold-text">Passangers:</p>
         <p *ngFor=" let p of term?.passangerList"><span class="bold-text">Name: </span>{{p.name}}
-        </p>   
+        </p>
+        <p><span class="bold-text">Id:</span>{{term?.id}}</p> 
         <p><span class="bold-text">Car Brand: </span>{{term?.carBrand}}</p>  
         <p><span class="bold-text">Num Of Registration Plates: </span>{{term?.numOfRegistrationPlates}}</p>
         <p><span class="bold-text">Chassis Number: </span>{{term?.chassisNumber}}</p>
@@ -14,5 +15,6 @@
         <p><span class="bold-text">Is Paid?: </span>{{term?.isPaid}}</p>
         <p><span class="bold-text">Is Crossed?: </span>{{term?.isCrossed}}</p>
         <p><span class="bold-text">IS Comeback?: </span>{{term?.isComeBack}}</p>
-        <p><span class="bold-text">Irregularities: </span>{{term?.irregularities}}</p>              
+        <p><span class="bold-text">Irregularities: </span>{{term?.irregularities}}</p>
+        <button (click)="deleteTerm()">Delete term</button>          
     </div>

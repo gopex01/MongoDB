@@ -65,17 +65,16 @@ export class TermService {
   }
   async findNextAvailableTerm(selectedDate: Date): Promise<Date> {
     if (!(selectedDate instanceof Date)) {
-      selectedDate = new Date(selectedDate);
+      selectedDate = new Date(Date.parse(selectedDate));
     }
-  
  
     selectedDate.setHours(0, 0, 0, 0);
-  
+    
     const overlappingTerms: TermEntity[] = await this.termModule
     .find({
       dateAndTime: {
         $gte: new Date(selectedDate),
-        $lt: new Date(selectedDate.getTime() + 24 * 60 * 60 * 1000),
+        $lt: new Date(selectedDate.getTime()+24*60*60*1000),
       },
     })
     .sort({ dateAndTime: 'asc' })
@@ -120,16 +119,26 @@ export class TermService {
   async acceptTerm(idNotification:number,answer:boolean)
   {
     const not=await this.notModule.findOne({id:idNotification});
-    console.log(not);
+    console.log('Odgovor',answer);
     const term=await this.termModule.findOne({id:not.idTerm});
-    console.log(not);
-    console.log(term);
     term.accepted=answer;
+    console.log(term);
     const changedTerm:ITerm=new this.termModule(term);
-    changedTerm.save();
+    //await changedTerm.save();
+    await term.save();
     return {
       message:'success'
     }
 
+  }
+  async deleteTerm(termId:number)
+  {
+    const term=await this.termModule.findOneAndDelete({id:termId});
+  }
+  async getTermId(termId:string)
+  {
+    //const term=await this.termModule.findById(termId);
+    const t=await this.termModule.findOne({_id:termId});
+    return t;
   }
 }

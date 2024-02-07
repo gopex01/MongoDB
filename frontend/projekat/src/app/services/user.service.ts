@@ -52,18 +52,19 @@ export class UserService {
   registerUser(name:string,email:string,username:string,pass:string,phone:string,jmbg:string)
   {
     const data={
-      NameAndSurname:name,
-      Email:email,
-      Username:username,
-      Password:pass,
-      PhoneNumber:phone,
-      DateOfBirth:'2004-05-14 01:00:00',
+      nameAndSurname:name,
+      email:email,
+      username:username,
+      password:pass,
+      phoneNumber:phone,
+      dateOfBirth:'2004-05-14 01:00:00',
       JMBG:jmbg,
       role:""
     }
     let resp=this.httpClient.post('http://localhost:3000/User/addUser',data,{headers:this.headers}).subscribe((x:any)=>{
       if(x.message='Success')
       {
+        console.log(x);
          this.dialog.open(DialogSuccessRegistrationComponent);
       }
    });

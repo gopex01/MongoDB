@@ -50,9 +50,9 @@ export class CreateTerminComponent implements OnInit{
   next()
   {
     
-    let PassangerList:Passanger[]=this.passArr;
-    let NumOfPassangers:number=this.NumOfPassangers;
-    this.store.dispatch(setFirstPart({NumOfPassangers,PassangerList}));
+    let passangerList:Passanger[]=this.passArr;
+    let numOfPassangers:number=this.NumOfPassangers;
+    this.store.dispatch(setFirstPart({numOfPassangers,passangerList}));
   }
   ukloniPass(IdNumber:any)
   {

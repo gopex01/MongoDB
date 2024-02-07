@@ -12,6 +12,7 @@ import { UserModule } from './User/user.module';
 import { AuthModule } from './Auth/auth.module';
 import { AdminModule } from './Admin/admin.module';
 import { AdminEntity } from './Admin/admin.entity';
+import { ReviewModule } from './Review-Rating/review.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { AdminEntity } from './Admin/admin.entity';
     UserModule,
     AdminModule,
     TermModule,
+    ReviewModule,
     AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',

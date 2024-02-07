@@ -16,6 +16,8 @@ export class NotifiticationEntity {
   userId:number;
   @Prop()
   termId:number;
+  @Prop({type:Date,expires:0})
+  expiresAt:Date;
 }
 export const NotificationSchema =
   SchemaFactory.createForClass(NotifiticationEntity);

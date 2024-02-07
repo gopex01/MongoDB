@@ -5,8 +5,8 @@ import { TermState } from '../reducers/create-term.reducer';
 import { selectBorderCross, selectTermState } from '../selectors/create-term.selector';
 import { selectAuthToken, selectUsername } from '../selectors/login.selector';
 import { selectUserId } from '../selectors/user-info.selector';
-import { switchMap } from 'rxjs';
-
+import { switchMap, take, tap } from 'rxjs';
+import { getPersonalTerms, getTerms } from '../actions/term.action';
 @Injectable({
   providedIn: 'root'
 })
@@ -42,7 +42,7 @@ export class CreateTermService {
       console.log(prelaz);
     });
     return this.store.select(selectUserId).pipe(
-      switchMap(p=>this.httpClient.post(this.route+`addTerm/${p}/${prelaz}`,obj,{headers:this.headers}))
+      switchMap(p=>this.httpClient.post(this.route+`addTerm/${p}/${prelaz}`,{...obj,id:undefined},{headers:this.headers}))
     )
    
     return this.httpClient.post(this.route+`addTerm/${this.idUser}/${prelaz}`
@@ -95,5 +95,13 @@ export class CreateTermService {
     },error=>{
       //error dialog
     })
+  }
+  deleteTerm(idTerm:number)
+  {
+    return this.httpClient.delete(this.route+`deleteTerm/${idTerm}`,{headers:this.headers}).pipe(
+      switchMap(p=>this.store.select(selectUsername).pipe(take(1))),
+      tap(p=>console.log(p)),
+      tap(x=>this.store.dispatch(getPersonalTerms({username:x})))
+    );
   }
 }

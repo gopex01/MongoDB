@@ -29,19 +29,23 @@ export class UserService{
                 message:'Error'
             }
         }
+        console.log(newUser);
         try{
-            const hashPass=await bcrypt.hash(newUser.password,10);
+            console.log('Pufla');
+            const hashPass=await bcrypt.hash(newUser.password, 10);
             user.password=hashPass;
+            console.log('Password je', user.password)
             user.rola=Role.User;
             user.verified=false;
-            await this.userRepo.save(user);
+            const user2 = await this.userRepo.save(user);
+            console.log(user2);
             await this.sendVerificationEmail(newUser.username,newUser.email);
             return{
                 message:'Success'
             }
         }
         catch(error){
-            if(error.code='23505')
+            /*if(error.code='23505')
             {
                 const constraint = error.detail.match(/\((.*?)\)/); 
                 if (constraint) {
@@ -50,7 +54,8 @@ export class UserService{
                   return `User with ${columns.join(', ')} is already exist `
                 }
                 return error;
-            }
+            }*/
+            return error;
         }        
     }
     async getOneUser(user:string):Promise<UserEntity|null>
