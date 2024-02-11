@@ -11,7 +11,9 @@ export class ReviewService{
     private reviewModule=Model<Document> as Model<IReviewDocument>,
     @Inject(BorderCrossService) private readonly bcService:BorderCrossService,
     @InjectModel('Notification') private notModule=Model<Document> as Model<INotificationDocument>,
-    @Inject(NotificationService) private readonly notService:NotificationService){}
+    @Inject(NotificationService) private readonly notService:NotificationService
+    )
+    {}
 
     async addReview(newReview:IReview,idUser:number,bcName:string):Promise<IReview>
     {
@@ -27,26 +29,41 @@ export class ReviewService{
         const reviews=await this.reviewModule.find({userId:idUser});
         return reviews;
     }
-    async getReviewsByBC(idBC:number)
+    async getReviewsByBC(bcname:string)
     {
-        const reviews=await this.reviewModule.find({borderCrossId:idBC});
+        const bc=await this.bcService.getOneBC(bcname);
+        if(bc){
+        const reviews=await this.reviewModule.find({borderCrossId:bc.Id});
         return reviews;
+        }
+        else{
+            return null;
+        }
     }
     async getNotVerifiedReviews()
     {
         const reviews=await this.reviewModule.find({status:false});
         return reviews;
     }
-    async verifyReview(idReview:number,answer:boolean)
+    async verifyReview(idReview:number,answer:string)
     {
         const review=await this.reviewModule.findOne({id:idReview});
-        if(answer==true)
+        if(answer=='yes')
         {
+            console.log('yes');
             review.status=true;
+            await review.save();
         }
         else{
-            review.deleteOne();
-            await this.notService.addNotification('Vasa recenzija je obrisana jer ne ispunjava prethodno propisane standarde',review.userId,undefined);
+            await this.notService.addNotification('Vasa recenzija je obrisana jer ne ispunjava prethodno propisane standarde',review.userId,undefined,false);
+            await review.deleteOne();
         }
+    }
+    async likeReview(idReview:number)
+    {
+        const review=await this.reviewModule.findOne({id:idReview});
+        let newValue=review.numberOfLikes+1;
+        review.numberOfLikes=newValue;
+        await review.save();
     }
 }

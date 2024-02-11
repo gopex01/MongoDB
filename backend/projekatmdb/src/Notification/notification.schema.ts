@@ -13,6 +13,8 @@ export class NotifiticationEntity {
   @Prop()
   idTerm:number;
   @Prop()
+  typeTerm:boolean;
+  @Prop()
   userId:number;
   @Prop()
   termId:number;

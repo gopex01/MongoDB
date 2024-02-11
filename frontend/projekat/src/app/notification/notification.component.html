@@ -5,6 +5,6 @@
         <p><span class="bold-text">Date And Time:</span>{{notification?.dateAndTime}}</p>
     </div>
     <button (click)="markAsRead()">Mark as read</button>
-    <button (click)="acceptTerm()">Accept</button>
-    <button (click)="declineTerm()">Decline</button>
+    <button *ngIf="notification?.typeTerm" (click)="acceptTerm()">Accept</button>
+    <button *ngIf="notification?.typeTerm" (click)="declineTerm()">Decline</button>
 </div>

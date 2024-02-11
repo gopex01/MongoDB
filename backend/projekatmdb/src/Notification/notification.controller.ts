@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { INotification } from './notification.interface';
 import { NotificationService } from './notifications.service';
 
@@ -17,5 +17,10 @@ export class NotificationController {
   async getPersonalNotifications(@Param('idUser') IdUser:number)
   {
     return await this.notificationService.getNotificationOfUser(IdUser);
+  }
+  @Patch('readNot/:idNot')
+  async readNot(@Param('idNot') idNot:number)
+  {
+    return await this.notificationService.readNotification(idNot);
   }
 }

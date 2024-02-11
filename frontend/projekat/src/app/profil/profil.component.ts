@@ -9,6 +9,8 @@ import { selectUserInfo } from '../selectors/user-info.selector';
 import { getUserInfo } from '../actions/user-profile.action';
 import { getNotifications } from '../actions/notification.action';
 import { selectNotificationTotal } from '../entities/notification.selector';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateReviewDialogComponent } from '../create-review-dialog/create-review-dialog.component';
 
 @Component({
   selector: 'app-profil',
@@ -23,7 +25,7 @@ export class ProfilComponent implements OnInit{
 
   notificationNumber$: Observable<number> = new Observable<number>();
 
-  constructor(private store:Store,private userService:UserService){
+  constructor(private store:Store,private userService:UserService,private dialog:MatDialog){
     this.username="";
     this.tokenUser="";
     this.user$=new Observable<User>();
@@ -46,5 +48,9 @@ export class ProfilComponent implements OnInit{
     this.user$.subscribe((x)=>console.log(x));
 
     this.notificationNumber$ = this.store.select(selectNotificationTotal);
+  }
+  gotoCreateReview()
+  {
+    this.dialog.open(CreateReviewDialogComponent);
   }
 }

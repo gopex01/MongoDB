@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TermSchema } from './term.schema';
 import { TermService } from './term.service';
@@ -20,8 +20,9 @@ import { Repository } from 'typeorm';
       { name: 'Notification', schema: NotificationSchema },
     ]),
     NotificationModule,
+    forwardRef(() => BorderCrossModule),
   ],
-  providers: [TermService, BorderCrossService, Repository],
+  providers: [TermService, Repository],
   controllers: [TermController],
 })
 export class TermModule {}

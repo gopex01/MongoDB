@@ -96,7 +96,7 @@ export class BorderCrossService {
            if(isComeBack=='Yes'){
                content=`Uspesno ste presli granicu i vratili se u svoju drzavu,Dobrodosli! Stanje vaseg zahteva pod rednim brojem ${idTerm} je azurirano.`;
            }
-           this.notService.addNotification(content,term.userId,idTerm);
+           this.notService.addNotification(content,term.userId,idTerm,false);
        }
        const term=await this.termModule.findOne({id:idTerm});
        if(!term){

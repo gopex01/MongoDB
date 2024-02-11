@@ -1,0 +1,13 @@
+<div class="gll">
+<h2 mat-dialog-title>Create Review</h2>
+<div class="mata">
+    <input placeholder="Comment" type="text" [(ngModel)]="vrednostComment">
+    <input type="number" placeholder="Rating" [(ngModel)]="vrednostRating">
+    <select [(ngModel)]="selectedBorderCross" (change)="onBorderCrossSelected()">
+        <option *ngFor="let borderCross of arrBC$ | async" [value]="borderCross.name">
+          {{ borderCross.name }}
+        </option>
+    </select>    
+    <button (click)="create()">Create</button>
+</div>
+</div>

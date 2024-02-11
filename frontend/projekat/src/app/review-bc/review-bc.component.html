@@ -1,0 +1,9 @@
+
+<div class="text">
+    <p><span class="bold-text">Comment:</span>{{review?.comment}}</p>
+    <p><span class="bold-text">Rate:</span>{{review?.rate}}</p>
+    <p><span class="bold-text">Likes:</span>{{review?.numberOfLikes}}</p>
+    <button mat-icon-button matTooltip="Basic" aria-label="Example icon-button with a heart icon" (click)="like()">
+        <mat-icon>favorite</mat-icon>
+    </button>
+</div>

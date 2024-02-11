@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, forwardRef } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ITerm, ITermDocument } from './term.interface';
 import { Model, Document } from 'mongoose';
@@ -33,7 +33,7 @@ export class TermService {
     const time=await this.findNextAvailableTerm(selectedDate);
     console.log("Novo vreme je "+time);
     createdTerm.dateAndTime=time;
-    await this.notService.addNotification(`Uspesno ste zakazali termin u vremenu:${time}`,idUser,createdTerm.id);
+    await this.notService.addNotification(`Uspesno ste zakazali termin u vremenu:${time}`,idUser,createdTerm.id,true);
     return createdTerm.save();
   }
   async getTerm(idTerm:number) {

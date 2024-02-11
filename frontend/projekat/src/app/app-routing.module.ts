@@ -19,6 +19,7 @@ import { CreateBcComponent } from './create-bc/create-bc.component';
 import { ListPersonalTermComponent } from './list-personal-term/list-personal-term.component';
 import { ListNotificationComponent } from './list-notification/list-notification.component';
 import { ListUserCardComponent } from './list-user-card/list-user-card.component';
+import { ListReviewComponent } from './list-review/list-review.component';
 const routes: Routes = [
   {path:'',component:HomePageComponent},
   {path:'Profile',component:ProfilComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path:'PersonalTerms',component:ListPersonalTermComponent},
   {path:'Notifications',component:ListNotificationComponent},
   {path:'AllUsers',component:ListUserCardComponent},
+  {path:'Reviews',component:ListReviewComponent}
 ];
 
 @NgModule({

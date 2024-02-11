@@ -72,6 +72,13 @@ import { DialogSuccessDeletedBcComponent } from './dialog-success-deleted-bc/dia
 import { DialogSuccessDeletedAccountComponent } from './dialog-success-deleted-account/dialog-success-deleted-account.component';
 import { DialogSuccessAcceptedTermComponent } from './dialog-success-accepted-term/dialog-success-accepted-term.component';
 import { DialogDeclineTermComponent } from './dialog-decline-term/dialog-decline-term.component';
+import { ReviewComponent } from './review/review.component';
+import { ListReviewComponent } from './list-review/list-review.component';
+import { ReviewBcComponent } from './review-bc/review-bc.component';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { CreateReviewDialogComponent } from './create-review-dialog/create-review-dialog.component';
+import { DialogSuccessCreatedReviewComponent } from './dialog-success-created-review/dialog-success-created-review.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,6 +117,11 @@ import { DialogDeclineTermComponent } from './dialog-decline-term/dialog-decline
     DialogSuccessDeletedAccountComponent,
     DialogSuccessAcceptedTermComponent,
     DialogDeclineTermComponent,
+    ReviewComponent,
+    ListReviewComponent,
+    ReviewBcComponent,
+    CreateReviewDialogComponent,
+    DialogSuccessCreatedReviewComponent,
   ],
   imports: [
     SlickCarouselModule,
@@ -126,6 +138,8 @@ import { DialogDeclineTermComponent } from './dialog-decline-term/dialog-decline
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
+    MatIconModule,
+    MatTooltipModule,
     FormsModule,
     StoreModule.forRoot({
     'auth': loginReducer,

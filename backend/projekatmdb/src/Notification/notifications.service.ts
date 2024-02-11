@@ -9,16 +9,17 @@ export class NotificationService {
     @InjectModel('Notification')
     private notificationModel = Model<Document> as Model<INotificationDocument>,
   ) {}
-  async addNotification(message: string, userId: number, idTerm: number) {
+  async addNotification(message: string, userId: number, idTerm: number,answer:boolean) {
     let newNotification = {
       content: message,
       isRead: false,
       dateAndTime: new Date(),
+      typeTerm:answer,
       userId: userId,
       idTerm: idTerm,
       expireAt:new Date(Date.now()+24*60*60*1000),//istice posle 24h
     };
-    let createdNotification = new this.notificationModel(newNotification);
+    let createdNotification = new this.notificationModel(newNotification);//ides u review model
     return createdNotification.save();
   }
   async getAllNotifications() {
@@ -48,5 +49,15 @@ export class NotificationService {
       }
     });
     return await retarr;
+  }
+  async readNotification(idNot:number)
+  {
+    const not=await this.notificationModel.findOne({id:idNot});
+    if(!not)
+    {
+      return null;
+    }
+    not.isRead=true;
+    return await not.save();
   }
 }

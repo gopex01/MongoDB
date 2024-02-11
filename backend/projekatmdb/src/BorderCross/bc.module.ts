@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BorderCrossEntity } from './bc.entity';
 import { BorderCrossService } from './bc.service';
@@ -11,6 +11,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { NotificationModule } from 'src/Notification/notifications.module';
 import { NotificationSchema } from 'src/Notification/notification.schema';
 import { Repository } from 'typeorm';
+import { reviewSchema } from 'src/Review-Rating/review.schema';
+import { ReviewModule } from 'src/Review-Rating/review.module';
 
 @Module({
   imports: [
@@ -20,6 +22,7 @@ import { Repository } from 'typeorm';
       { name: 'Notification', schema: NotificationSchema },
     ]),
     NotificationModule,
+    forwardRef(() => TermModule),
   ],
   providers: [BorderCrossService, Repository],
   controllers: [BorderCrossController],

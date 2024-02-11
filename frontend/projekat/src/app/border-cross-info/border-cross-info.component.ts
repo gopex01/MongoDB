@@ -4,6 +4,10 @@ import { selectBCState } from '../selectors/border-cross.selector';
 import { BCState } from '../reducers/border.cross.reducer';
 import { BorderCross } from '../models/border-cross.model';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, map } from 'rxjs';
+import { selectUserInfo } from '../selectors/user-info.selector';
+import { Review } from '../models/review.model';
+import { ReviewService } from '../services/review.service';
 
 @Component({
   selector: 'app-border-cross-info',
@@ -23,13 +27,19 @@ export class BorderCrossInfoComponent implements OnInit{
   images:string[]=[];
   bcName:string="";
   selectedBC:any;
+
+  isUserLoged$: Observable<boolean> = new Observable<boolean>();
+  arrReview$:Observable<any>;
+
   constructor(private store:Store,
-    private route:ActivatedRoute)
+    private route:ActivatedRoute,
+    private reviewService:ReviewService)
   {
     this.selectedBC=null;
     this.route.queryParams.subscribe(params=>{
       this.bcName=params['name'];
     });
+    this.arrReview$=new Observable<Review[]>();
   }
   ngOnInit(): void {
     this.route.queryParams.subscribe(params=>{
@@ -40,6 +50,7 @@ export class BorderCrossInfoComponent implements OnInit{
       if(this.selectedBC)
       {
         console.log(this.selectedBC);
+        this.arrReview$=this.reviewService.getBCReview(this.selectedBC.username);
         for(let i=1;i<=5;i++){
           
         this.images.push(`../../assets/images/${this.bcName}${i}.jpeg`);
@@ -47,7 +58,12 @@ export class BorderCrossInfoComponent implements OnInit{
         console.log(this.images);
         this.selectedImage=this.images[0];
       }
-    })
+    });
+
+    this.isUserLoged$ = this.store.select(selectUserInfo)
+    .pipe(
+      map(p => p ? true : false),
+    );
   }
   previousImage()
   {

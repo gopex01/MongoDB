@@ -1,0 +1,59 @@
+p {
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+    color:ivory; /* Srednja boja teksta */
+  }
+  .bold-text {
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: ivory;
+  }
+h2{
+  color:ivory;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+.text{
+  background: radial-gradient(ellipse at bottom, #5078A0 0%, #1B2735 100%); 
+  border: 2px solid #ddd;
+border-radius: 12px;
+padding: 20px;
+margin: 2px;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2)/* sivkasta peščana boja */
+}
+.mainDiv{
+  display: flex;
+}
+
+.card{
+  border: 2px solid #ddd;
+border-radius: 12px;
+padding: 20px;
+margin: 20px;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+background: radial-gradient(ellipse at bottom, #5078A0 0%, #1B2735 100%);/* Svetlija nijansa bele boje */
+display: flex;
+flex-direction: row;
+width: 20%;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.example-disabled {
+  display: inline-block;
+}

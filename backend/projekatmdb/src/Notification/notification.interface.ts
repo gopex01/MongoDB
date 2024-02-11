@@ -3,6 +3,7 @@ export interface INotification extends Document {
  content: string;
  isRead: boolean;
  dateAndTime: Date;
+ typeTerm:boolean;
  idTerm:number;
  userId:number;
  
